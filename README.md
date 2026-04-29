@@ -11,7 +11,19 @@
 
 ### **Цикломатска комплексност**
 
-Цикломатската комплексност за методот searchBookByTitle изнесува 5. Бидејќи методот има вкупно 4 предикатни јазли (P), според формулата P+1, добиваме краен резултат 5.
+Цикломатската комплексност за методот searchBookByTitle изнесува 5. Бидејќи методот има вкупно 4 предикатни јазли (P):
+1. if (title.isEmpty())
+2. for (Book book : books)
+3. if (book.getTitle().equalsIgnoreCase(title) && !book.isBorrowed())
+4. if (results.isEmpty()),
 
-Цикломатската комплексност за методот borrowBook изнесува исто 5. Бидејќи методот има вкупно 4 предикатни јазли (P), според формулата P+1, добиваме краен резултат 5.
+според формулата P+1, добиваме краен резултат 5.
+
+Цикломатската комплексност за методот borrowBook изнесува исто 5. Бидејќи методот има вкупно 4 предикатни јазли (P):
+1. if (title.isEmpty() || author.isEmpty())
+2. for (Book book : books)
+3. if (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author))
+4. if (!book.isBorrowed()),
+
+според формулата P+1, добиваме краен резултат 5.
 
