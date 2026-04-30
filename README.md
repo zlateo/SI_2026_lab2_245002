@@ -4,10 +4,11 @@
 ### **Control flow graph**
 
 *searchBookByTitle*
-<img width="429" height="621" alt="searchBookByTitle" src="https://github.com/user-attachments/assets/2a1df429-2f0d-4489-a695-58e231ae1cca" />
+<img width="430" height="620" alt="searchBookByTitle" src="https://github.com/user-attachments/assets/2a1df429-2f0d-4489-a695-58e231ae1cca" />
 
 *borrowBook*
-<img width="429" height="621" alt="borrowBook" src="https://github.com/user-attachments/assets/6b9c496a-fa53-444a-bf6d-62e02e9f9f1f" />
+<img width="430" height="620" alt="borrowBook" src="https://github.com/user-attachments/assets/21ed3435-1be3-4705-acf1-254115430c58" />
+
 
 ### **Цикломатска комплексност**
 
