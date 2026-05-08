@@ -4,10 +4,12 @@
 ### **Control flow graph**
 
 *searchBookByTitle*
-<img width="430" height="620" alt="searchBookByTitle" src="https://github.com/user-attachments/assets/2a1df429-2f0d-4489-a695-58e231ae1cca" />
+<img width="430" height="620" alt="searchBookByTitle" src="https://github.com/user-attachments/assets/31eb67d0-5cb2-478a-b413-4e80cb8f0d52" />
+
 
 *borrowBook*
-<img width="430" height="620" alt="borrowBook" src="https://github.com/user-attachments/assets/21ed3435-1be3-4705-acf1-254115430c58" />
+<img width="430" height="620" alt="borrowBook" src="https://github.com/user-attachments/assets/e52480a0-edfd-43eb-a206-774327e3894a" />
+
 
 
 ### **Цикломатска комплексност**
@@ -32,38 +34,38 @@
 
 | Line | Test 1 | Test 2 | Test 3 |
 |------|--------|--------|--------|
-| 1    | *      | *      | *      |
-| 2    | *      |        |        |
-| 3    |        | *      | *      |
-| 4    |        | *      | *      |
-| 5    |        | *      | *      |
-| 6    |        | *      |        |
-| 7    |        | *      | *      |
-| 8    |        |        | *      |
-| 9    |        | *      |        |
+| A    | *      | *      | *      |
+| B    | *      |        |        |
+| C    |        | *      | *      |
+| D    |        | *      | *      |
+| E    |        | *      | *      |
+| F    |        | *      |        |
+| G    |        | *      | *      |
+| H    |        |        | *      |
+| I    |        | *      |        |
 
 Минималниот број на потребни тест случаји за функцијата *searchBookByTitle* според Every statement критериумот е 3. 
 
-Првиот тест е за случај кога насловот не е даден и се фрла исклучок, односно ги покрива линиите 1 и 2.
+Првиот тест е за случај кога насловот не е даден и се фрла исклучок, односно ги покрива линиите A и B.
 
-Вториот тест е кога бараме книга која постои во library и не е позајмена, односно ги покрива линиите 1, 3, 4, 5 (true), 6, 7 (false) и 9.
+Вториот тест е кога бараме книга која постои во library и не е позајмена, односно ги покрива линиите A, C, D, E (true), F, G (false) и I.
 
-Третиот тест е кога бараме книга која не постои во library, односно ги покрива линиите 1, 3, 4, 5 (false), 7 (true) и 8. 
+Третиот тест е кога бараме книга која не постои во library, односно ги покрива линиите A, C, D, E (false), G (true) и H. 
 
 ### **Тест случаи според критериумот Every branch**
 
 | Branch | Test 1 | Test 2 | Test 3 | Test 4 |
 |--------|--------|--------|--------|--------|
-| 1->2   | *      |        |        |        |
-| 1->3   |        | *      | *      | *      |
-| 3->4   |        | *      | *      | *      |
-| 3->10  |        | *      |        |        |
-| 4->3   |        | *      | *      | *      |
-| 4->5   |        |        | *      | *      |
-| 5->6   |        |        | *      |        |
-| 5->8   |        |        |        | *      |
-| 6->7   |        |        | *      |        |
-| 7->9   |        |        | *      |        |
+| A->B   | *      |        |        |        |
+| A->C   |        | *      | *      | *      |
+| C->D   |        | *      | *      | *      |
+| C->J   |        | *      |        |        |
+| D->C   |        | *      | *      | *      |
+| D->E   |        |        | *      | *      |
+| E->F   |        |        | *      |        |
+| E->H   |        |        |        | *      |
+| F->G   |        |        | *      |        |
+| G->I   |        |        | *      |        |
 
 Минималниот број на потребни тест случаји за функцијата *borrowBook* според Every branch критериумот е 4.
 
@@ -71,9 +73,9 @@
 
 Вториот тест случај е кога имаме книга која не постои во library. For циклусот ги изминува сите книги, условот (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) не е исполнет и фрла исклучок.
 
-Третиот тест случај е кога имаме книга која постои во library и не е позајмена. For циклусот ги изминува книгите и ја наоѓа бараната книга, условот (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) е исполнет, условот (!book.isBorrowed()) е исполнет, книгата се означува како позајмена. 
+Третиот тест случај е кога имаме книга која постои во library и не е позајмена. For циклусот ги изминува книгите и ја наоѓа бараната книга, односно условот (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) е исполнет. Условот (!book.isBorrowed()) е исполнет, книгата се означува како позајмена. 
 
-Четвртиот случај е кога имаме книга која постои во library и е позајмена. For циклусот ги изминува книгите и ја наоѓа бараната книга, условот (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) е исполнет, условот (!book.isBorrowed()) не е исполнет, фрла исклучок. 
+Четвртиот случај е кога имаме книга која постои во library и е позајмена. For циклусот ги изминува книгите и ја наоѓа бараната книга. Условот (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) е исполнет, условот (!book.isBorrowed()) не е исполнет, фрла исклучок. 
 
 ### **Multiple Condition за условот *borrowBook***
 
