@@ -52,38 +52,38 @@ class Library {
     }
 
     public List<Book> searchBookByTitle(String title) {
-        if (title.isEmpty()){                                                       //A
-            throw new IllegalArgumentException("Invalid title");                    //B
+        if (title.isEmpty()){                                                       //1
+            throw new IllegalArgumentException("Invalid title");                    //2
         }
-        List<Book> results = new ArrayList<Book>();                                     //C
-        for (Book book : books) {                                                   //D
-            if (book.getTitle().equalsIgnoreCase(title) && !book.isBorrowed()) {    //E
-                results.add(book);                                                  //F
+        List<Book> results = new ArrayList<Book>();                                     //3
+        for (Book book : books) {        //for(int i=0; i<books.size(); i++)        //4: 4.1, 4.2, 4.3
+            if (book.getTitle().equalsIgnoreCase(title) && !book.isBorrowed()) {    //5
+                results.add(book);                                                  //6
             }
         }
-        if (results.isEmpty()) {                                                    //G
-            return null;                                                            //H
+        if (results.isEmpty()) {                                                    //7
+            return null;                                                            //8
         }
-        return results;                                                             //I
-    }
+        return results;                                                             //9
+    }                                                                               //10
 
     public void borrowBook(String title, String author) {
-        if (title.isEmpty() || author.isEmpty()){                                                           //A
-            throw new IllegalArgumentException("Invalid search query");                                     //B
+        if (title.isEmpty() || author.isEmpty()){                                                           //1
+            throw new IllegalArgumentException("Invalid search query");                                     //2
         }
-        for (Book book : books) {                                                                           //C
-            if (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) {     //D
-                if (!book.isBorrowed()) {                                                                   //E
-                    book.setBorrowed(true);                                                                 //F
-                    System.out.println("Borrowed successfully");                                            //G
+        for (Book book : books) {          //for(i=0; i<books.size(); i++)                                  //3: 3.1, 3.2, 3.3
+            if (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) {     //4
+                if (!book.isBorrowed()) {                                                                   //5
+                    book.setBorrowed(true);                                                                 //6
+                    System.out.println("Borrowed successfully");                                            //7
                 } else {
-                    throw new RuntimeException("Book is already borrowed.");                                //H
+                    throw new RuntimeException("Book is already borrowed.");                                //8
                 }
-                return;                                                                                     //I
+                return;                                                                                     //9
             }
         }
-        throw new RuntimeException("Book not found");                                                       //J
-    }
+        throw new RuntimeException("Book not found");                                                       //10
+    }                                                                                                       //11
 
     public void returnBook(String title) {
         if (title.isEmpty()){

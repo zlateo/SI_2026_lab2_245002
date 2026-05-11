@@ -16,15 +16,15 @@ public class SI2026Lab2Test {
 
     @Test
     void searchBookEveryStatementTest() {
-        //test 1: invalid title, line A, B
+        //test 1: invalid title, line 1, 2, 10
         assertThrows(IllegalArgumentException.class, () -> library.searchBookByTitle(""));
 
-        //test 2: line C, D, E (true), F, G (false), I
+        //test 2: line 1, 3, 4.1, 4.2, 4.3, 5 (true), 6, 7 (false), 9 и 10
         List<Book> result=library.searchBookByTitle("Clean Code");
         assertNotNull(result);
         assertEquals(1, result.size());
 
-        //test 3: empty list, line G (true), H
+        //test 3: empty list, line 1, 3, 4.1, 4.2, 4.3, 5 (false), 7 (true), 8 и 10
         assertNull(library.searchBookByTitle("Dune"));
     }
 
